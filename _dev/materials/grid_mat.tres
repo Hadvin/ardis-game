@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://nuyjet8507vi"]
+
+[ext_resource type="Shader" uid="uid://dcw0jyvaf6ai1" path="res://_dev/materials/shaders/grid.gdshader" id="1_di8a4"]
+[ext_resource type="Texture2D" uid="uid://bj16juwfyi7rs" path="res://_dev/textures/grid_tex.png" id="2_1p0uo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_di8a4")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/background_color = Color(0.3534346, 0.5118712, 0.5886115, 1)
+shader_parameter/texture_grid = ExtResource("2_1p0uo")
+shader_parameter/texture_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/sharpness = 8.0

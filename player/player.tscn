@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://vi6cg3n4ef06"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bt8qs"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqu6x"]
+albedo_color = Color(0.6689842, 0.7900727, 0.91656095, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kn2hj"]
+material = SubResource("StandardMaterial3D_kqu6x")
+radius = 0.3
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oul6g"]
+albedo_color = Color(0.8562238, 0.55344224, 0.58448726, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_kn2hj"]
+material = SubResource("StandardMaterial3D_oul6g")
+
+[sub_resource type="InputMappingActionEntry" id="InputMappingActionEntry_bt8qs"]
+input_action = &"Jump"
+tap_tag = &"a.b.c"
+
+[sub_resource type="InputMappingContextAsset" id="InputMappingContextAsset_kn2hj"]
+context_name = &"Movement"
+entries = Array[InputMappingActionEntry]([SubResource("InputMappingActionEntry_bt8qs")])
+
+[sub_resource type="GameplayTagContainer" id="GameplayTagContainer_kqu6x"]
+tags = PackedStringArray("a.b.c")
+
+[sub_resource type="Ability" id="Ability_kqu6x"]
+retrigger_instanced_ability = true
+cancel_on_input_release = true
+ability_tags = SubResource("GameplayTagContainer_kqu6x")
+
+[sub_resource type="AttributeDefinition" id="AttributeDefinition_oul6g"]
+attribute_tag = &"a.b.c"
+base_value = 10.0
+max_value = 20.0
+
+[sub_resource type="AttributeSet" id="AttributeSet_kqu6x"]
+attributes = Array[AttributeDefinition]([SubResource("AttributeDefinition_oul6g")])
+
+[node name="Player" type="Entity" unique_id=202937190]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=937824048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1022144598]
+shape = SubResource("CapsuleShape3D_bt8qs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=260661039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_kn2hj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=398779956]
+transform = Transform3D(0.16, 0, 0, 0, -6.993822e-09, -0.16, 0, 0.16, -6.993822e-09, 0, 1.3894006, -0.41685826)
+mesh = SubResource("PrismMesh_kn2hj")
+
+[node name="InputMediatorComponent" type="InputMediatorComponent" parent="." unique_id=637054854]
+
+[node name="AbilitySystemInputBridgeComponent" type="AbilitySystemInputBridgeComponent" parent="." unique_id=1475221533]
+default_input_contexts = Array[InputMappingContextAsset]([SubResource("InputMappingContextAsset_kn2hj")])
+
+[node name="AbilitySystemFacadeComponent" type="AbilitySystemFacadeComponent" parent="." unique_id=1115128359]
+default_abilities = Array[Ability]([SubResource("Ability_kqu6x")])
+
+[node name="AttributeSetComponent" type="AttributeSetComponent" parent="." unique_id=435700751]
+default_attribute_sets = Array[AttributeSet]([SubResource("AttributeSet_kqu6x")])

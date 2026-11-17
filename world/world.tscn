@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://g6j1xeq8ie1p"]
+
+[ext_resource type="Material" uid="uid://nuyjet8507vi" path="res://_dev/materials/grid_mat.tres" id="1_6xmxd"]
+
+[node name="World" type="Node3D" unique_id=372869222]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=307586619]
+material_override = ExtResource("1_6xmxd")
+size = Vector3(100, 0.2, 100)
+
+[node name="PlayerRespawnPoint" type="PlayerRespawnPoint" parent="." unique_id=1894999738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.292094, 0)

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dkx2vopcgdq8w"]
+
+[ext_resource type="PackedScene" uid="uid://g6j1xeq8ie1p" path="res://world/world.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node" unique_id=1472615519]
+
+[node name="GameStateFlowHSM" type="GameStateFlowHSM" parent="." unique_id=1007036977]
+
+[node name="GameplayState" type="GameplayState" parent="GameStateFlowHSM" unique_id=131161182]
+player_entity_scene_path = "uid://vi6cg3n4ef06"
+
+[node name="World" parent="." unique_id=372869222 instance=ExtResource("1_ig7tw")]
+
+[node name="AbilitySystemDebugOverlay" type="AbilitySystemDebugOverlay" parent="." unique_id=269424946]
